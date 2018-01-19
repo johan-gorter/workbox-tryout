@@ -5,9 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "npm run build && node server.js",
-    "clean": "rm -rf dist && mkdir dist",
-    "copy": "cp src/* dist/",
-    "build": "npm run clean && npm run copy"
+    "clean": "rmdir /q /s dist && mkdir dist",
+    "copy": "copy src\\*.* dist\\",
+    "build": "npm run clean && npm run copy && workbox generate:sw"
   },
   "dependencies": {
     "express": "^4.16.1"
@@ -18,5 +18,8 @@
   "repository": {
     "url": "https://glitch.com/edit/#!/workbox-npm-script"
   },
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "workbox-cli": "2.1.2"
+  }
 }
